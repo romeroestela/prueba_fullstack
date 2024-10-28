@@ -12,8 +12,6 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 
 ### Front-end (React + TypeScript)
 - [ ] Configurar proyecto de React con TypeScript.
-- **Adicional**:
-    - [ ] Instalar y configurar el linter para TypeScript + React
 - [ ] Crear interfaz de usuario:
    - [ ] Formulario para añadir operaciones.
    - [ ] Lista para mostrar las operaciones existentes.
