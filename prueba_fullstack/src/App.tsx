@@ -1,6 +1,39 @@
+import { useState } from 'react'
 import './App.css'
 
+interface Operation{
+  id: `${string}-${string}-${string}-${string}`,
+  marketer_id: `${string}-${string}-${string}-${string}`, //Tipo de string que genera crypto.randomUUID(),
+  client_id: `${string}-${string}-${string}-${string}`,
+  type: 'buy' | 'sell',
+  amount: number,
+  price: number,
+  name: string
+}
+
+const INITIAL_OPERATION: Operation[] = [
+  {
+    id: crypto.randomUUID(),
+    marketer_id: crypto.randomUUID(),
+    client_id : crypto.randomUUID(),
+    type: 'buy',
+    amount: 45872,
+    price: 100000,
+    name: 'Empresa1'
+  },
+  {
+    id: crypto.randomUUID(),
+    marketer_id: crypto.randomUUID(),
+    client_id : crypto.randomUUID(),
+    type: 'sell',
+    amount: 45872,
+    price: 2558211,
+    name: 'Empresa2'
+  },
+]
+
 function App() {
+ const [operations] = useState(INITIAL_OPERATION)
 
   return (
     <main>
@@ -14,26 +47,27 @@ function App() {
               type="text"
               id="marketer_id"
               name="marketer_id"
-              placeholder="5L4498"
+              placeholder="ID de tu comercializadora"
             />
           </label>
+
           <label>
             ID cliente: 
             <input
               required
               type="text"
-              id="marketer_id"
-              name="marketer_id"
-              placeholder="468DJ"
+              id="client_id"
+              name="client_id"
+              placeholder="Id comercializadora cliente"
             />
           </label>
 
-          
           <label htmlFor="buy" className="formRadio">
             Compra
             <input
               type="radio"
               name="type"
+              value={"buy"}
             />
           </label>
 
@@ -42,6 +76,7 @@ function App() {
             <input
               type="radio"
               name="type"
+              value="sell"
             />
           </label>
 
@@ -60,13 +95,33 @@ function App() {
 
       <section>
         <h2>Lista de operaciones</h2>
-        <ul>
-          <li> Operación 1</li>
-          <li> Operación 2</li>
-          <li> Operación 3</li>
-          <li> Operación 4</li>
-          <li> Operación 5</li>
-        </ul>
+        {operations.length === 0 ? (
+          <p>Aun no hay operaciones</p>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <th>Compra o Venta</th>
+                <th>Comercializadora</th>
+                <th>Cliente</th>
+                <th>Cantidad de gas</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              {operations.map((operation) => (
+                <tr key={operation.id}>
+                  <td>{operation.type}</td>
+                  <td>{operation.marketer_id}</td>
+                  <td>{operation.client_id}</td>
+                  <td>{operation.amount}</td>
+                  <td>{operation.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        
+        )}
       </section>
     </main>
   )

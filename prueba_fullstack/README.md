@@ -49,3 +49,4 @@ Asegúrate de priorizar la funcionalidad básica antes de implementar caracterí
     **Elección de Vite:** Decidí utilizar Vite por su rapidez en la configuración y en el desarrollo, lo que permite una mejor experiencia al trabajar con React y TypeScript.
 
     **Uso de SWC:** Elegí SWC como el compilador de TypeScript por su rendimiento superior en comparación con el compilador tradicional, lo que agiliza el proceso de desarrollo.
+
