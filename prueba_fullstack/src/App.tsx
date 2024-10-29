@@ -8,7 +8,8 @@ interface Operation{
   type: 'buy' | 'sell',
   amount: number,
   price: number,
-  name: string
+  marketer_name: string,
+  client_name: string
 }
 
 const INITIAL_OPERATION: Operation[] = [
@@ -19,7 +20,8 @@ const INITIAL_OPERATION: Operation[] = [
     type: 'buy',
     amount: 45872,
     price: 100000,
-    name: 'Empresa1'
+    marketer_name: 'Comercializadora 1',
+    client_name: 'Comercializadora 2'
   },
   {
     id: crypto.randomUUID(),
@@ -28,7 +30,8 @@ const INITIAL_OPERATION: Operation[] = [
     type: 'sell',
     amount: 45872,
     price: 2558211,
-    name: 'Empresa2'
+    marketer_name: 'Comercializadora 2',
+    client_name: 'Comercializadora 1'
   },
 ]
 
@@ -112,8 +115,8 @@ function App() {
               {operations.map((operation) => (
                 <tr key={operation.id}>
                   <td>{operation.type}</td>
-                  <td>{operation.marketer_id}</td>
-                  <td>{operation.client_id}</td>
+                  <td>{operation.marketer_name}</td>
+                  <td>{operation.client_name}</td>
                   <td>{operation.amount}</td>
                   <td>{operation.price}</td>
                 </tr>
