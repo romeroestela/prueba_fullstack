@@ -36,15 +36,10 @@ const INITIAL_OPERATION: Operation[] = [
 ]
 
 function App() {
- const [operations, setOperations] = useState(INITIAL_OPERATION)
+ const [operations] = useState(INITIAL_OPERATION)
 
  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()
-  const { elements } = event.currentTarget
-
-  const inputMarketerId = elements.namedItem('marketer_id')
-  const isInput = inputMarketerId instanceof HTMLInputElement
-  if (!isInput || inputMarketerId == null) return
   
  }
 
