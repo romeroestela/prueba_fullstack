@@ -43,10 +43,34 @@ input{
   margin-bottom: 16px;
   width: 50%;
 }
+
 .formRadio label{
   display: inline;
 }
+
 .formRadio input{
   display:inline-block;
   width: 5%;
 }
+
+/* src/App.css o un archivo CSS específico */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 2px solid white;
+}
+
+th, td {
+  border: 1px solid #555;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #555;
+  font-weight: bold;
+  text-align: center;
+}
+
