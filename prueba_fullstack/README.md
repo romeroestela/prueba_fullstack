@@ -41,14 +41,16 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 Asegúrate de priorizar la funcionalidad básica antes de implementar características opcionales.
 
 ### Instalación y Despligue
-    He utilizado Vite para la intalación de React + Typescript. Las opciones elegidas han sido:
-    Framework: REACT 
-    Variante: TypeScript + SWC
+   He utilizado Vite para la intalación de React + Typescript. Las opciones elegidas han sido:
+   Framework: REACT 
+   Variante: TypeScript + SWC
 
 ### Comentarios y Decisiones 
-    Elección de Vite: Decidí utilizar Vite por su rapidez en la configuración y en el desarrollo, lo que permite una mejor experiencia al trabajar con React y TypeScript.
+   Elección de Vite: Decidí utilizar Vite por su rapidez en la configuración y en el desarrollo, lo que permite una mejor experiencia al trabajar con React y TypeScript.
 
-    Uso de SWC: Elegí SWC como el compilador de TypeScript por su rendimiento superior en comparación con el compilador tradicional, lo que agiliza el proceso de desarrollo.
+   Uso de SWC: Elegí SWC como el compilador de TypeScript por su rendimiento superior en comparación con el compilador tradicional, lo que agiliza el proceso de desarrollo.
 
    Linter: Decidí no instalar ESLint manualmente, ya que Vite incluye el linter por defecto.
    
+### Decisiones de Diseño
+   Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
