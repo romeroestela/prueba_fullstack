@@ -41,27 +41,35 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 Asegúrate de priorizar la funcionalidad básica antes de implementar características opcionales.
 
 ## Instalación y Despligue
-   He utilizado Vite para la intalación de React + Typescript. Las opciones elegidas han sido:
-   Framework: REACT 
-   Variante: TypeScript + SWC
+He utilizado Vite para la intalación de React + Typescript. Las opciones elegidas han sido:
+Framework: REACT 
+Variante: TypeScript + SWC
 
 ## Configuración proyecto Node + TypeScript
-   - Cambios en el archivo package.json. 
-   He añadido la siguiente línea en la sección de `scripts`:
-   
+He hecho cambios en el archivo `package.json`. 
+He añadido la siguiente línea en la sección de `scripts`:
+
    "scripts": {
       "tsc": "tsc",
-   },
+   }
 
-   Este script permite compilar los archivos TypeScript a JavaScript
+Este script permite compilar los archivos TypeScript a JavaScript
 
 ### Tipos para Express
-
 Al utilizar Express en TypeScript, Visual Studio Code o el complicador TypeScript mostraban un error, idicando que no se encontraba la declaración de tipos para el módulo `express`. Esto sucede porque el paquete de Express no incluye sus propios tipos.
 
 Para resolver esto, he utilizado un paquete de tipos creado por la comunidad: `@types/express`. Visual Studio Code sugiere instalarlo, y lo he intalado con el siguiente comando:
 
    npm install @types/express -D
+
+### Scripts del Proyecto
+He configurado el siguiente script en el archivo `package.json`:
+
+   "scripts": {
+      "start": "node build/index.js"
+   }
+
+Este script permite iniciar la aplicación ejecutando el archivo `build/index.js`, que es la versión transformada del archivo principal (index.ts) en  un formato que Node.js entiende. Al correr `npm start`, se lanza la aplicación usando este archivo listo para producción, que se guarda en la carpera `build`.
 
 ## Estructura del Proyecto Front-End
 

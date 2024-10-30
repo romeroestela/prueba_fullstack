@@ -4,7 +4,7 @@ app.use(express.json())
 
 const PORT = 3000
 
-app.get('/operations', (req, res) => {
+app.get('/operations', (_req, res) => {
     console.log('¡Se han encontrado operaciones!')
     res.send('operation')
 })
