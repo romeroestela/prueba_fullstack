@@ -10,3 +10,5 @@ export interface OperationEntry {
   market_name: string
   client_name: string
 }
+
+export type NonSensitiveInfoDiaryEntry = Omit<OperationEntry, 'id', 'marketer_id', 'client_id'>

@@ -1,10 +1,10 @@
 import express from 'express'
-import operationsData from '../operations.json'
+import * as operationServicies from '../servicies/operationServicies'
 
 const router = express.Router()
 
 router.get('/', (_req, res) => {
-  res.json(operationsData)
+  res.send(operationServicies.getEntriesWithoutSensitiveInfo())
 })
 
 router.post('/', (_req, res) => {
