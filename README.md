@@ -96,7 +96,9 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 
 - Uso de SWC: Elegí SWC como el compilador de TypeScript por su rendimiento superior en comparación con el compilador tradicional, lo que agiliza el proceso de desarrollo.
 
-- Linter: Decidí no instalar ESLint manualmente, ya que Vite incluye el linter por defecto.
+- Linter Front-End: Decidí no instalar ESLint manualmente, ya que Vite incluye el linter por defecto.
+
+- Linter Back-End: He añadido un linter llamado `ts-standard`. Este linter ayuda a mantener un código limpio y consistente.
 
 - Elección de servidor Express.js o Fastify
 He decidido utilizar **Express.js** en lugar de **Fastify** para la implementación del servidor.
