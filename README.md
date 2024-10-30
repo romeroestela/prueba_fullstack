@@ -19,7 +19,7 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 - [ ] (Opcional) Implementar React Query para gestión de estado y cache de datos.
 
 ### Back-end (Node.js + TypeScript)
-- [ ] Configurar proyecto de Node.js con TypeScript y Express/Fastify.
+- [x] Configurar proyecto de Node.js con TypeScript y Express/Fastify.
 - [ ] Crear rutas API:
    - [ ] `GET /operations`: Devuelve todas las operaciones.
    - [ ] `POST /operations`: Permite agregar una nueva operación.
@@ -55,6 +55,9 @@ Asegúrate de priorizar la funcionalidad básica antes de implementar caracterí
 
    Este script permite compilar los archivos TypeScript a JavaScript
 
+## Estructura del Proyecto Front-End
+
+## Estructura del Proyecto Back-End
 
 ## Comentarios y Decisiones 
    - Elección de Vite: Decidí utilizar Vite por su rapidez en la configuración y en el desarrollo, lo que permite una mejor experiencia al trabajar con React y TypeScript.
@@ -66,10 +69,10 @@ Asegúrate de priorizar la funcionalidad básica antes de implementar caracterí
    - Elección de servidor Express.js o Fastify
    He decidido utilizar **Express.js** en lugar de **Fastify** para la implementación del servidor.
    
-   Tengo una pequeña base con Node.js y Express.js, así que puedo avanzar más rápido en lugar de aprender una nueva tecnología desde cero.
+      Tengo una pequeña base con Node.js y Express.js, así que puedo avanzar más rápido en lugar de aprender una nueva tecnología desde cero.
 
    ### Consideraciones Futuras
-   Fastify ofrece características avanzadas como un rendimiento superior y un enfoque basado en promesas. Por eso, en el futuro me parece una buena opción aprenderlo.
+   **Fastify** ofrece características avanzadas como un rendimiento superior y un enfoque basado en promesas. Por eso, en el futuro me parece una buena opción aprenderlo.
    
 ## Decisiones de Diseño
    - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
