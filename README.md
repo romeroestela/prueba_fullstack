@@ -49,9 +49,9 @@ Variante: TypeScript + SWC
 He hecho cambios en el archivo `package.json`. 
 He añadido la siguiente línea en la sección de `scripts`:
 
-   "scripts": {
-      "tsc": "tsc",
-   }
+"scripts": {
+   "tsc": "tsc",
+}
 
 Este script permite compilar los archivos TypeScript a JavaScript
 
@@ -65,11 +65,22 @@ Para resolver esto, he utilizado un paquete de tipos creado por la comunidad: `@
 ### Scripts del Proyecto
 He configurado el siguiente script en el archivo `package.json`:
 
-   "scripts": {
-      "start": "node build/index.js"
-   }
+"scripts": {
+   "start": "node build/index.js"
+}
 
 Este script permite iniciar la aplicación ejecutando el archivo `build/index.js`, que es la versión transformada del archivo principal (index.ts) en  un formato que Node.js entiende. Al correr `npm start`, se lanza la aplicación usando este archivo listo para producción, que se guarda en la carpera `build`.
+
+Para facilitar el desarrollo, he instalado `ts-node-dev`como dependencia de desarrollo:
+`ts-node-dev` es una herramientaque permite ejecutar el código TypeScript directamente sin necesidad de compilarlo manualmente cada vez que hacemos un cambio. También detecta automáticamente los cambios en los archivos y reinicia el servidor, lo que hace que el flujo de desarrollo sea mñas rñapido y cómodo.
+
+He agregado el scripot en el archivo package.json para ejecutar la aplicación en modo de desarrollo: 
+
+"scripts": {
+  "dev": "ts-node-dev src/index.ts"
+}
+
+Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticamente cada vez que haya cambios en el código.
 
 ## Estructura del Proyecto Front-End
 
