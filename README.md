@@ -103,3 +103,4 @@ He decidido utilizar **Express.js** en lugar de **Fastify** para la implementaci
    
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
+
