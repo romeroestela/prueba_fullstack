@@ -1,11 +1,10 @@
 import express from 'express'
-
-import operationsRouter from './routes/operations'
+import operationsRouter from './routes/operationsRoutes'
 
 const app = express()
-app.use(express.json())
-
 const PORT = 3000
+
+app.use(express.json())
 
 app.get('/operations', (_req, res) => {
     console.log('¡Se han encontrado operaciones!')
