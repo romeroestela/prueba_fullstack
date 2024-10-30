@@ -74,7 +74,7 @@ Este script permite iniciar la aplicación ejecutando el archivo `build/index.js
 Para facilitar el desarrollo, he instalado `ts-node-dev`como dependencia de desarrollo:
 `ts-node-dev` es una herramientaque permite ejecutar el código TypeScript directamente sin necesidad de compilarlo manualmente cada vez que hacemos un cambio. También detecta automáticamente los cambios en los archivos y reinicia el servidor, lo que hace que el flujo de desarrollo sea mñas rñapido y cómodo.
 
-He agregado el scripot en el archivo package.json para ejecutar la aplicación en modo de desarrollo: 
+He agregado el script en el archivo package.json para ejecutar la aplicación en modo de desarrollo: 
 
 "scripts": {
   "dev": "ts-node-dev src/index.ts"
@@ -87,19 +87,19 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 ## Estructura del Proyecto Back-End
 
 ## Comentarios y Decisiones 
-   - Elección de Vite: Decidí utilizar Vite por su rapidez en la configuración y en el desarrollo, lo que permite una mejor experiencia al trabajar con React y TypeScript.
+- Elección de Vite: Decidí utilizar Vite por su rapidez en la configuración y en el desarrollo, lo que permite una mejor experiencia al trabajar con React y TypeScript.
 
-   - Uso de SWC: Elegí SWC como el compilador de TypeScript por su rendimiento superior en comparación con el compilador tradicional, lo que agiliza el proceso de desarrollo.
+- Uso de SWC: Elegí SWC como el compilador de TypeScript por su rendimiento superior en comparación con el compilador tradicional, lo que agiliza el proceso de desarrollo.
 
-   - Linter: Decidí no instalar ESLint manualmente, ya que Vite incluye el linter por defecto.
+- Linter: Decidí no instalar ESLint manualmente, ya que Vite incluye el linter por defecto.
 
-   - Elección de servidor Express.js o Fastify
-   He decidido utilizar **Express.js** en lugar de **Fastify** para la implementación del servidor.
+- Elección de servidor Express.js o Fastify
+He decidido utilizar **Express.js** en lugar de **Fastify** para la implementación del servidor.
    
-      Tengo una pequeña base con Node.js y Express.js, así que puedo avanzar más rápido en lugar de aprender una nueva tecnología desde cero.
+   Tengo una pequeña base con Node.js y Express.js, así que puedo avanzar más rápido en lugar de aprender una nueva tecnología desde cero.
 
-   ### Consideraciones Futuras
-   **Fastify** ofrece características avanzadas como un rendimiento superior y un enfoque basado en promesas. Por eso, en el futuro me parece una buena opción aprenderlo.
+### Consideraciones Futuras
+**Fastify** ofrece características avanzadas como un rendimiento superior y un enfoque basado en promesas. Por eso, en el futuro me parece una buena opción aprenderlo.
    
 ## Decisiones de Diseño
-   - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
+- Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
