@@ -1,5 +1,8 @@
-import operationsData from '../operations.json'
+import { OperationEntry } from '../types'
+import operationData from '../operations.json'
 
-export const getEntries = () => operationsData
+const operations: OperationEntry[] = operationData as OperationEntry[]
+
+export const getEntries = () => operations
 
 export const addOperation = () => null
