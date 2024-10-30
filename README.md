@@ -110,7 +110,7 @@ He decidido utilizar **Express.js** en lugar de **Fastify** para la implementaci
 
 - Definición del Tipo NonSensitiveInfoDiaryEntry
 El tipo `NonSensitiveInfoDiaryEntry` es una manera de proteger información sensible en nuestra aplicación. He decidido no mostrar datos, como el `id`, el `marketer_id` y el `client_id`, en las respuestas que enviamos desde la API. Esto nos ayuda a mantener la privacidad de dichos datos.
-
+TypeScript no puede inferir por sí mismo qué datos debemos mostrar o esconder. Por eso, tenemos que decirle de manera manual qué información queremos que aparezca. Utilizaremos en la funcion `getEntriesWithoutSensitiveInfo` del fichero `operationServicies.ts` el método map para crear un nuevo array que solo incluya los campos que queremos mostrar.
    
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
