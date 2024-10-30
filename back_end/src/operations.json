@@ -2,42 +2,42 @@
     {
       "id": 1,
       "marketer_id": 101,
-      "client_id": 202,
+      "client_id": 102,
       "type": "buy",
       "amount": 1000,
       "price": 50,
-      "client_name": "Comercializadora 2",
-      "market_name": "Comercializadora 1"
+      "market_name": "Comercializadora 1",
+      "client_name": "Comercializadora 2"
     },
     {
         "id": 2,
         "marketer_id": 102,
-        "client_id": 203,
+        "client_id": 103,
         "type": "sell",
         "amount": 2000,
         "price": 45,
-        "client_name": "Comercializadora 1",
-        "market_name": "Comercializadora 2"
+        "market_name": "Comercializadora 2",
+        "client_name": "Comercializadora 3"
       },
       {
         "id": 3,
-        "marketer_id": 155,
+        "marketer_id": 103,
         "client_id": 101,
         "type": "sell",
         "amount": 2000,
         "price": 45,
-        "client_name": "Comercializadora 1",
-        "market_name": "Comercializadora 3"
+        "market_name": "Comercializadora 3",
+        "client_name": "Comercializadora 1"
       },
       {
         "id": 4,
-        "marketer_id": 105,
-        "client_id": 155,
+        "marketer_id": 104,
+        "client_id": 101,
         "type": "sell",
         "amount": 2000,
         "price": 45,
-        "client_name": "Comercializadora 3",
-        "market_name": "Comercializadora 4"
+        "market_name": "Comercializadora 4",
+        "client_name": "Comercializadora 1"
       }
   ]
   
