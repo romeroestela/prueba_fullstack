@@ -85,6 +85,11 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 ## Estructura del Proyecto Front-End
 
 ## Estructura del Proyecto Back-End
+-Carpeta `routes`: He creado la carpeta `routes` para organizar las rutas de la API y manejar las solicitudes que llegan al servidor de manera estructurada. El archivo `operationsRouter.ts` define las rutas relacionadas con las operaciones y cómo deben responder a solicitudes específicas de los clientes, como obtener o crear nuevas operaciones.
+
+-Carpeta `services`: He creado una carpeta servicies para centralizar la lógica de negocio de la aplicación. Dentro de ella, el archivo `operationsServices.ts` contiene las funciones necesarias para manejar las operaciones, como añadir, validar y obtener datos de operaciones.
+
+-Archivo `types.d.ts` en `src`: Este archivo contiene las definiciones de tipos TypeScript que utilizo en diferentes partes de la aplicacion. 
 
 ## Comentarios y Decisiones 
 - Elección de Vite: Decidí utilizar Vite por su rapidez en la configuración y en el desarrollo, lo que permite una mejor experiencia al trabajar con React y TypeScript.
