@@ -40,12 +40,12 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 ### Notas 
 Asegúrate de priorizar la funcionalidad básica antes de implementar características opcionales.
 
-### Instalación y Despligue
+## Instalación y Despligue
    He utilizado Vite para la intalación de React + Typescript. Las opciones elegidas han sido:
    Framework: REACT 
    Variante: TypeScript + SWC
 
-### Configuración proyecto Node + TypeScript
+## Configuración proyecto Node + TypeScript
    - Cambios en el archivo package.json. 
    He añadido la siguiente línea en la sección de `scripts`:
    
@@ -54,6 +54,14 @@ Asegúrate de priorizar la funcionalidad básica antes de implementar caracterí
    },
 
    Este script permite compilar los archivos TypeScript a JavaScript
+
+### Tipos para Express
+
+Al utilizar Express en TypeScript, Visual Studio Code o el complicador TypeScript mostraban un error, idicando que no se encontraba la declaración de tipos para el módulo `express`. Esto sucede porque el paquete de Express no incluye sus propios tipos.
+
+Para resolver esto, he utilizado un paquete de tipos creado por la comunidad: `@types/express`. Visual Studio Code sugiere instalarlo, y lo he intalado con el siguiente comando:
+
+   npm install @types/express -D
 
 ## Estructura del Proyecto Front-End
 
