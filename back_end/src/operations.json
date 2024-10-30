@@ -33,7 +33,7 @@
         "id": 4,
         "marketer_id": 104,
         "client_id": 101,
-        "type": "sell",
+        "type": "buy",
         "amount": 2000,
         "price": 45,
         "market_name": "Comercializadora 4",
