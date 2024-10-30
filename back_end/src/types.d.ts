@@ -11,4 +11,5 @@ export interface OperationEntry {
   client_name: string
 }
 
+// Definición del tipo NonSensitiveInfoDiaryEntry para mantner la privacidad de los datos.
 export type NonSensitiveInfoDiaryEntry = Omit<OperationEntry, 'id', 'marketer_id', 'client_id'>
