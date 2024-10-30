@@ -91,22 +91,26 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 
 -Archivo `types.d.ts` en `src`: Este archivo contiene las definiciones de tipos TypeScript que utilizo en diferentes partes de la aplicacion. 
 
-## Comentarios y Decisiones 
+## Comentarios y Decisiones Front-End
 - Elección de Vite: Decidí utilizar Vite por su rapidez en la configuración y en el desarrollo, lo que permite una mejor experiencia al trabajar con React y TypeScript.
 
 - Uso de SWC: Elegí SWC como el compilador de TypeScript por su rendimiento superior en comparación con el compilador tradicional, lo que agiliza el proceso de desarrollo.
 
 - Linter Front-End: Decidí no instalar ESLint manualmente, ya que Vite incluye el linter por defecto.
 
+## Comentarios y Decisiones Back-End
 - Linter Back-End: He añadido un linter llamado `ts-standard`. Este linter ayuda a mantener un código limpio y consistente.
 
 - Elección de servidor Express.js o Fastify
 He decidido utilizar **Express.js** en lugar de **Fastify** para la implementación del servidor.
    
    Tengo una pequeña base con Node.js y Express.js, así que puedo avanzar más rápido en lugar de aprender una nueva tecnología desde cero.
-
 ### Consideraciones Futuras
 **Fastify** ofrece características avanzadas como un rendimiento superior y un enfoque basado en promesas. Por eso, en el futuro me parece una buena opción aprenderlo.
+
+- Definición del Tipo NonSensitiveInfoDiaryEntry
+El tipo `NonSensitiveInfoDiaryEntry` es una manera de proteger información sensible en nuestra aplicación. He decidido no mostrar datos, como el `id`, el `marketer_id` y el `client_id`, en las respuestas que enviamos desde la API. Esto nos ayuda a mantener la privacidad de dichos datos.
+
    
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
