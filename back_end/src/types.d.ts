@@ -7,10 +7,12 @@ export interface OperationEntry {
   type: Type
   amount: number
   price: number
-  market_name: string
+  marketer_name: string
   client_name: string
 }
 
 // Definición del tipo NonSensitiveInfoEntry para mantener la privacidad de los datos.
 // Este tipo omite el id, marketer_id y client_id.
 export type NonSensitiveInfoEntry = Omit<OperationEntry, 'id', 'marketer_id', 'client_id'>
+
+export type newOperationEntry = Omit<OperationEntry, 'id', 'marketer_name', 'client_name'>

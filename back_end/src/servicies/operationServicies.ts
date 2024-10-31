@@ -1,4 +1,4 @@
-import { OperationEntry, NonSensitiveInfoEntry, Type } from '../types'
+import { OperationEntry, NonSensitiveInfoEntry, newOperationEntry } from '../types'
 import operationData from '../operations.json'
 import marketerData from '../marketers.json'
 
@@ -19,24 +19,18 @@ export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoEntry[] => {
       type,
       amount,
       price,
-      market_name: getMarketerNameById(marketer_id),
+      marketer_name: getMarketerNameById(marketer_id),
       client_name: getMarketerNameById(client_id),
     }
   })
 }
 
-export const addOperation = (marketer_id: number, client_id: number, type: Type, amount: number, price: number): OperationEntry => {
-  const newOperationEntry = {
+export const addOperation = (newOperationEntry: newOperationEntry): OperationEntry => {
+  const newOperation = {
     id: Math.max(...operations.map(d => d.id)) + 1, //Esta línea crea un nuevo ID encontrando el número más alto y sumándole 1.
-    marketer_id,
-    client_id,
-    type,
-    amount,
-    price,
-    market_name: getMarketerNameById(marketer_id),
-    client_name: getMarketerNameById(client_id)
+    ... newOperationEntry
   }
 
-  operations.push(newOperationEntry)
-  return newOperationEntry
+  operations.push(newOperation)
+  return newOperation
 }

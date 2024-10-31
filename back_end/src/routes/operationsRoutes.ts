@@ -8,15 +8,15 @@ router.get('/', (_req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const { marketer_id, client_id, type, amount, price} = req.body
+  const { marketer_id, client_id, type, amount, price } = req.body
 
-  const newOperationEntry = operationServicies.addOperation(
+  const newOperationEntry = operationServicies.addOperation({
     marketer_id,
     client_id,
     type,
     amount,
     price
-  )
+  })
 
   res.json(newOperationEntry)
 })
