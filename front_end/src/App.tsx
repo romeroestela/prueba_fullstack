@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 interface Operation{
@@ -13,7 +13,21 @@ interface Operation{
 }
 
 function App() {
- const [operations] = useState<Operation[]>([])
+ const [operations, setOperations] = useState<Operation[]>([])
+
+ useEffect(() => {
+  const fetchOperations = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/operations')
+      const data = await response.json()
+      setOperations(data)
+    } catch (error) {
+      console.error('Error al cargar las operacioes:', error)
+    }
+  }
+
+  fetchOperations()
+ }, [])
 
  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()
@@ -24,6 +38,7 @@ function App() {
     <main>
       <aside>
         <h2>Formulario para añadir operaciones</h2>
+        
         <form onSubmit={handleSubmit}>
           <label htmlFor="marketer_id">
             ID de tu comercializadora: 
