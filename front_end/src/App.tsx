@@ -2,9 +2,9 @@ import { useState } from 'react'
 import './App.css'
 
 interface Operation{
-  id: `${string}-${string}-${string}-${string}`, //Tipo de string que genera crypto.randomUUID(),
-  marketer_id: string, 
-  client_id: string,
+  id: string,
+  marketer_id: number, 
+  client_id: number,
   type: 'buy' | 'sell',
   amount: number,
   price: number,
@@ -12,31 +12,8 @@ interface Operation{
   client_name: string
 }
 
-const INITIAL_OPERATION: Operation[] = [
-  {
-    id: crypto.randomUUID(),
-    marketer_id: '4875HG',
-    client_id : '49584H',
-    type: 'buy',
-    amount: 45872,
-    price: 100000,
-    marketer_name: 'Comercializadora 1',
-    client_name: 'Comercializadora 2'
-  },
-  {
-    id: crypto.randomUUID(),
-    marketer_id: '49584H',
-    client_id : '4875HG',
-    type: 'sell',
-    amount: 45872,
-    price: 2558211,
-    marketer_name: 'Comercializadora 2',
-    client_name: 'Comercializadora 1'
-  },
-]
-
 function App() {
- const [operations] = useState(INITIAL_OPERATION)
+ const [operations] = useState<Operation[]>([])
 
  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()

@@ -105,6 +105,7 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 He decidido utilizar **Express.js** en lugar de **Fastify** para la implementación del servidor.
    
    Tengo una pequeña base con Node.js y Express.js, así que puedo avanzar más rápido en lugar de aprender una nueva tecnología desde cero.
+   
 ### Consideraciones Futuras
 **Fastify** ofrece características avanzadas como un rendimiento superior y un enfoque basado en promesas. Por eso, en el futuro me parece una buena opción aprenderlo.
 
