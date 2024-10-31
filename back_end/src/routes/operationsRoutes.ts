@@ -7,8 +7,18 @@ router.get('/', (_req, res) => {
   res.send(operationServicies.getEntriesWithoutSensitiveInfo())
 })
 
-router.post('/', (_req, res) => {
-  res.send('Agregar una nueva operación')
+router.post('/', (req, res) => {
+  const { marketer_id, client_id, type, amount, price} = req.body
+
+  const newOperationEntry = operationServicies.addOperation(
+    marketer_id,
+    client_id,
+    type,
+    amount,
+    price
+  )
+
+  res.json(newOperationEntry)
 })
 
 export default router

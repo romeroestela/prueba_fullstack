@@ -5,9 +5,7 @@
       "client_id": 102,
       "type": "buy",
       "amount": 1000,
-      "price": 50,
-      "market_name": "Comercializadora 1",
-      "client_name": "Comercializadora 2"
+      "price": 50
     },
     {
         "id": 2,
@@ -15,9 +13,7 @@
         "client_id": 103,
         "type": "sell",
         "amount": 2000,
-        "price": 45,
-        "market_name": "Comercializadora 2",
-        "client_name": "Comercializadora 3"
+        "price": 45
       },
       {
         "id": 3,
@@ -25,9 +21,7 @@
         "client_id": 101,
         "type": "sell",
         "amount": 2000,
-        "price": 45,
-        "market_name": "Comercializadora 3",
-        "client_name": "Comercializadora 1"
+        "price": 45
       },
       {
         "id": 4,
@@ -35,9 +29,7 @@
         "client_id": 101,
         "type": "buy",
         "amount": 2000,
-        "price": 45,
-        "market_name": "Comercializadora 4",
-        "client_name": "Comercializadora 1"
+        "price": 45
       }
   ]
   
