@@ -116,20 +116,17 @@ TypeScript no puede inferir por sí mismo qué datos debemos mostrar o esconder.
 
 - Definición del Tipo `newOperationEntry`
 Para facilitar la creación de nuevas operaciones sin repetir tanto código, he añadido un nuevo tipo `newOperationEntry`, que es una versión simplificada de las operaciones originales. Este tipo excluye campos como el `id`, `marketer_name` y `client_name` porque estos se generan o asignan automáticamente.
-   
+
+- Mejoras y Organización del Código.
+Para solucionar un problema que me ha surgido en producción con los tipos de datos, he creado el archivo `utils.ts`, donde he añadido funciones que validan los datos que recibe el servidor antes de procesarlos. Este archivo permite asegurar que los datos cumplen con los tipos y formatos esperados, evitando errores en la aplicación.
+
+Las validaciones incluyen: 
+
+`isString`: Comprueba que el valor es una cadena. Aunque por ahora solo la uso una vez, esta función facilita la escalabilidaad, por si más adelante se necesita en otros lugares del código.
+
+`isNumber`: Verifica que el valor es un número y no un ´NaN´. Esto nos asegura que las entradas numéricas sean válidades, sin repetir lógica en varios sitios. 
+
+`isType`: Asegura que el valor de `Type` solo sea `buy` o `sell`. Para manejar mejor estos valores he creado un `enum` llamado `Type`en vez de usar un tipo simple.
+
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
-
-router.post('/', (req, res) => {
-  const { marketer_id, client_id, type, amount, price } = req.body
-
-  const newOperationEntry = operationServicies.addOperation({
-    marketer_id,
-    client_id,
-    type,
-    amount,
-    price
-  })
-
-  res.json(newOperationEntry)
-})
