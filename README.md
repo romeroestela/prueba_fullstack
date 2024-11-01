@@ -128,5 +128,9 @@ Las validaciones incluyen:
 
 `isType`: Asegura que el valor de `Type` solo sea `buy` o `sell`. Para manejar mejor estos valores he creado un `enum` llamado `Type`en vez de usar un tipo simple.
 
+Este último cambio me generó un problema en producción. Inicialmente, había definido `Type` como `enum` dentro del fihero `types.d.ts`, que es un archivo de definiciones `(.d.ts)`. Por esa razón al incluir un `enum`, que requiere una representación en tiempo de ejecucición, surgierón errores de compilación. 
+
+Para solucionar este problema, he movido el `enum` a un fichero independiente (`enums.ts`) y he exportado `Type` desde allí. 
+
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
