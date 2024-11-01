@@ -132,5 +132,14 @@ Este último cambio me generó un problema en producción. Inicialmente, había 
 
 Para solucionar este problema, he movido el `enum` a un fichero independiente (`enums.ts`) y he exportado `Type` desde allí. 
 
+- Solución al problema de CORS
+Al intentar conectar el frontend con el backend, me ha surgido un error de CORS(Cross-Origin Resource Sharing). Este error se debe a que, por motivos de seguridad, losn avegadores limitan las solicitudes hachas desde un dominio diferente al que sirve la aplicación. Para solucionarlo, he añadido una configuración en el backend que permite el acceso desde cualquier origen. 
+
+app.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  next()
+})
+
+
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
