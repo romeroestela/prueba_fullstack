@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 interface Operation{
-  id: string,
+  id: number,
   marketer_id: number, 
   client_id: number,
   type: 'buy' | 'sell',
@@ -21,8 +21,9 @@ function App() {
       const response = await fetch('http://localhost:3000/api/operations')
       const data = await response.json()
       setOperations(data)
+      console.log(data)
     } catch (error) {
-      console.error('Error al cargar las operacioes:', error)
+      console.error('Error al cargar las operaciones:', error)
     }
   }
 

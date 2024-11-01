@@ -20,9 +20,9 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 
 ### Back-end (Node.js + TypeScript)
 - [x] Configurar proyecto de Node.js con TypeScript y Express/Fastify.
-- [ ] Crear rutas API:
-   - [ ] `GET /operations`: Devuelve todas las operaciones.
-   - [ ] `POST /operations`: Permite agregar una nueva operación.
+- [x] Crear rutas API:
+   - [x] `GET /operations`: Devuelve todas las operaciones.
+   - [x] `POST /operations`: Permite agregar una nueva operación.
 - [ ] Conectar con PostgreSQL usando un ORM (TypeORM).
    - [ ] Crear las funciones para consultar y modificar la base de datos.
 
@@ -120,3 +120,16 @@ Para facilitar la creación de nuevas operaciones sin repetir tanto código, he 
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
 
+router.post('/', (req, res) => {
+  const { marketer_id, client_id, type, amount, price } = req.body
+
+  const newOperationEntry = operationServicies.addOperation({
+    marketer_id,
+    client_id,
+    type,
+    amount,
+    price
+  })
+
+  res.json(newOperationEntry)
+})

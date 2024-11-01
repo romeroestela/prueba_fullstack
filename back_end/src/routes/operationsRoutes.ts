@@ -1,5 +1,6 @@
 import express from 'express'
 import * as operationServicies from '../servicies/operationServicies'
+import toNewOperationEntry from '../utils'
 
 const router = express.Router()
 
@@ -8,17 +9,17 @@ router.get('/', (_req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const { marketer_id, client_id, type, amount, price } = req.body
+  try{
+    const newOperationEntry = toNewOperationEntry(req.body)
 
-  const newOperationEntry = operationServicies.addOperation({
-    marketer_id,
-    client_id,
-    type,
-    amount,
-    price
-  })
-
-  res.json(newOperationEntry)
+    const addOperationEntry = operationServicies.addOperation(newOperationEntry)
+  
+    res.json(addOperationEntry)
+  } catch (e) {
+    if (e instanceof Error){
+      res.status(400).send(e.message)
+    }
+  }
 })
 
 export default router
