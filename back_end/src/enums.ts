@@ -1,4 +1,4 @@
 export enum Type {
-    Buy = 'buy',
-    Sell = 'sell'
+  Buy = 'buy',
+  Sell = 'sell'
 }

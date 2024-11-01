@@ -9,14 +9,14 @@ router.get('/', (_req, res) => {
 })
 
 router.post('/', (req, res) => {
-  try{
+  try {
     const newOperationEntry = toNewOperationEntry(req.body)
 
     const addOperationEntry = operationServicies.addOperation(newOperationEntry)
-  
+
     res.json(addOperationEntry)
   } catch (e) {
-    if (e instanceof Error){
+    if (e instanceof Error) {
       res.status(400).send(e.message)
     }
   }
