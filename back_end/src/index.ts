@@ -6,9 +6,9 @@ const PORT = 3000
 
 app.use(express.json())
 
-app.get('/operations', (_req, res) => {
-  console.log('¡Se han encontrado operaciones!')
-  res.send('operation')
+app.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  next()
 })
 
 app.use('/api/operations', operationsRouter)
