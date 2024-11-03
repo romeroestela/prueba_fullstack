@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useEffect, useState } from 'react';
+import './App.css';
 
 interface Operation{
   id: number,
-  marketer_id: number, 
+  marketer_id: number,
   client_id: number,
   type: 'buy' | 'sell',
   amount: number,
@@ -13,53 +13,75 @@ interface Operation{
 }
 
 function App() {
- const [operations, setOperations] = useState<Operation[]>([])
+  //Estado para almacenar la lista de operaciones
+  const [operations, setOperations] = useState<Operation[]>([]);
 
- useEffect(() => {
-  const fetchOperations = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/api/operations')
-      const data = await response.json()
-      setOperations(data)
-      console.log(data)
-    } catch (error) {
-      console.error('Error al cargar las operaciones:', error)
-    }
-  }
+  //Estado para almacenar los valores ingresados en el formulario
+  const [inputValues, setInputValues] = useState({
+    marketer_id: '',
+    client_id: '',
+    type: '',
+    amount: '',
+    price: '',
+  });
 
-  fetchOperations()
- }, [])
+  useEffect(() => {
+    const fetchOperations = async() => {
+      try {
+      //Solicitud GET al backend para obeter operaciones
+        const response = await fetch('http://localhost:3000/api/operations');
+        const data = await response.json();
+        setOperations(data); //Almacenamos las operaciones en el estado
+      } catch (error) {
+        console.error('Error al cargar las operaciones:', error);
+      }
+    };
 
- const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault()
-  
- }
+    fetchOperations();
+  }, []);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+  };
+
+  //Maneja los cambios en los campos del formulario
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValues({
+      ...inputValues,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   return (
     <main>
       <aside>
         <h2>Formulario para añadir operaciones</h2>
-        
+
         <form onSubmit={handleSubmit}>
           <label htmlFor="marketer_id">
-            ID de tu comercializadora: 
+            ID de tu comercializadora:
             <input
               required
               type="text"
               id="marketer_id"
               name="marketer_id"
               placeholder="ID de tu comercializadora"
+              value={inputValues.marketer_id}
+              onChange={handleChange}
             />
           </label>
 
           <label htmlFor="client_id">
-            ID cliente: 
+            ID cliente:
             <input
               required
               type="text"
               id="client_id"
               name="client_id"
-              placeholder="Id comercializadora cliente"
+              placeholder="ID comercializadora cliente"
+              value={inputValues.client_id}
+              onChange={handleChange}
             />
           </label>
 
@@ -68,7 +90,9 @@ function App() {
             <input
               type="radio"
               name="type"
-              value={"buy"}
+              value="buy"
+              checked={inputValues.type === 'buy'}
+              onChange={handleChange}
             />
           </label>
 
@@ -78,26 +102,32 @@ function App() {
               type="radio"
               name="type"
               value="sell"
+              checked={inputValues.type === 'sell'}
+              onChange={handleChange}
             />
           </label>
 
           <label htmlFor="amount">
-            Cantidad de gas: 
+            Cantidad de gas:
             <input
               required
               type="number"
               name="amount"
               placeholder="50000"
+              value={inputValues.amount}
+              onChange={handleChange}
             />
           </label>
 
           <label htmlFor="price">
-            Precio: 
+            Precio:
             <input
               required
               type="number"
               name="price"
               placeholder="50000"
+              value={inputValues.price}
+              onChange={handleChange}
             />
           </label>
           <button>Añadir nueva operación</button>
@@ -131,11 +161,11 @@ function App() {
               ))}
             </tbody>
           </table>
-        
+
         )}
       </section>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
