@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Operation } from '../types';
 const Table = () => {
+
   //Estado para almacenar la lista de operaciones
   const [operations, setOperations] = useState<Operation[]>([]);
   useEffect(() => {
@@ -16,6 +17,7 @@ const Table = () => {
     };
     fetchOperations();
   }, []);
+
   return(
     <>
       {operations.length === 0 ? (
