@@ -8,7 +8,7 @@ const Form = () => {
     amount: '',
     price: '',
   });
-
+  //Función que se llama cuando se envía el formulario
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
