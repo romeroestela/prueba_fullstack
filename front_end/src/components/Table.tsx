@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react';
-import { Operation } from '../types';
+import { Operation, OperationResponseFromApi } from '../types';
+
 const Table = () => {
 
   //Estado para almacenar la lista de operaciones
   const [operations, setOperations] = useState<Operation[]>([]);
+
   useEffect(() => {
-    const fetchOperations = async() => {
-      try {
-      //Solicitud GET al backend para obeter operaciones
-        const response = await fetch('http://localhost:3000/api/operations');
-        const data = await response.json();
-        setOperations(data); //Almacenamos las operaciones en el estado
-      } catch (error) {
-        console.error('Error al cargar las operaciones:', error);
-      }
+    const fetchOperations = (): Promise<OperationResponseFromApi> => {
+      return fetch('http://localhost:3000/api/operations').then(res => res.json());
     };
-    fetchOperations();
+
+    fetchOperations()
+      .then(data => {
+        console.log(data);
+        setOperations(data);
+      });
+
   }, []);
 
   return(
@@ -50,3 +51,4 @@ const Table = () => {
   );
 };
 export default Table;
+

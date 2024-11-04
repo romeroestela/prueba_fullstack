@@ -17,8 +17,8 @@ const Form = () => {
   //Maneja los cambios en los campos del formulario
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValues({
-      ...inputValues,
-      [event.target.name]: event.target.value,
+      ...inputValues, //Copia los valores actuales de todos los inputs
+      [event.target.name]: event.target.value, //Actualiza solo el input que cambió
     });
   };
 
