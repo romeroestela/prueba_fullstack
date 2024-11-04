@@ -99,7 +99,7 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 
 - Linter Front-End: Decidí no instalar ESLint manualmente, ya que Vite incluye el linter por defecto.
 
-- 
+- Tipo de respuesta de la API: En el archivo `types.d.ts` he añadido un tipo llamado`OperationResponseFromApi`. Este tipo es una forma de definir cómo debería ser la respuesta que recibimos del backend. Esto ayuda a que TypeScript verifique que los datos son correctos, lo que evita errores y have que el código sea más seguro. 
 
 ## Comentarios y Decisiones Back-End
 - Linter Back-End: He añadido un linter llamado `ts-standard`. Este linter ayuda a mantener un código limpio y consistente.
