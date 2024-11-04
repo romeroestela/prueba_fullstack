@@ -83,6 +83,7 @@ He agregado el script en el archivo package.json para ejecutar la aplicación en
 Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticamente cada vez que haya cambios en el código.
 
 ## Estructura del Proyecto Front-End
+- Carpeta `components`: He creado la carpeta `components` para agrupar componentes reutilizables. Esto me ayuda a mantener el código más ordenado y fácil de manejar. Dentro de esta carpeta, tengo dos componentes: uno llamado `Form` para capturar nuesvas operaciones y otro llamado `Table` para mostrar esas operaciones.
 
 ## Estructura del Proyecto Back-End
 -Carpeta `routes`: He creado la carpeta `routes` para organizar las rutas de la API y manejar las solicitudes que llegan al servidor de manera estructurada. El archivo `operationsRouter.ts` define las rutas relacionadas con las operaciones y cómo deben responder a solicitudes específicas de los clientes, como obtener o crear nuevas operaciones.
@@ -97,6 +98,8 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 - Uso de SWC: Elegí SWC como el compilador de TypeScript por su rendimiento superior en comparación con el compilador tradicional, lo que agiliza el proceso de desarrollo.
 
 - Linter Front-End: Decidí no instalar ESLint manualmente, ya que Vite incluye el linter por defecto.
+
+- 
 
 ## Comentarios y Decisiones Back-End
 - Linter Back-End: He añadido un linter llamado `ts-standard`. Este linter ayuda a mantener un código limpio y consistente.

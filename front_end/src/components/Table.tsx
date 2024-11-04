@@ -7,14 +7,16 @@ const Table = () => {
   const [operations, setOperations] = useState<Operation[]>([]);
 
   useEffect(() => {
+    // Solicitud GET al backend para obtener operaciones
     const fetchOperations = (): Promise<OperationResponseFromApi> => {
       return fetch('http://localhost:3000/api/operations').then(res => res.json());
     };
 
+    // Llama a fetchOperations y, cuando los datos están disponibles, los almacena en el estado
     fetchOperations()
       .then(data => {
         console.log(data);
-        setOperations(data);
+        setOperations(data); // Almacenamos las operaciones en el estado
       });
 
   }, []);
