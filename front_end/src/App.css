@@ -7,7 +7,7 @@
 
 main{
   display: grid;
-  grid-template-columns: 450px 1fr;
+  grid-template-rows: 450px 1fr;
   gap: 64px
 }
 
@@ -41,7 +41,7 @@ input{
   border: 1px solid #555;
   display: block;
   margin-bottom: 16px;
-  width: 50%;
+  width: 25%;
 }
 
 .formRadio label{
@@ -52,8 +52,6 @@ input{
   display:inline-block;
   width: 5%;
 }
-
-/* src/App.css o un archivo CSS específico */
 
 table {
   width: 100%;

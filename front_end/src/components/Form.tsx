@@ -36,7 +36,7 @@ const Form = () => {
       })
       .then((data) => {
         console.log('Operación añadida exitosamente:', data);
-        setInputValues(initialInputValues)
+        setInputValues(initialInputValues);
       })
       .catch((error) => {
         console.error('Error al enviar el formulario:', error);
