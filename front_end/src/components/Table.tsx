@@ -3,13 +3,20 @@ import { Operation, OperationResponseFromApi } from '../types';
 
 const Table = () => {
 
-  //Estado para almacenar la lista de operaciones
+  // Estado para almacenar la lista de operaciones
   const [operations, setOperations] = useState<Operation[]>([]);
 
   useEffect(() => {
     // Solicitud GET al backend para obtener operaciones
     const fetchOperations = (): Promise<OperationResponseFromApi> => {
-      return fetch('http://localhost:3000/api/operations').then(res => res.json());
+      return fetch('http://localhost:3000/api/operations')
+        .then(res => {
+
+          if (!res.ok) { // Valida el estado de la API
+            throw new Error('Error al obtener operaciones');
+          }
+          return res.json();
+        });
     };
 
     // Llama a fetchOperations y, cuando los datos están disponibles, los almacena en el estado
@@ -17,6 +24,9 @@ const Table = () => {
       .then(data => {
         console.log(data);
         setOperations(data); // Almacenamos las operaciones en el estado
+      })
+      .catch(error => { // Captura cualquier error que ocurra en el proceso completo de fetchOperations
+        console.error('Error al cargar las operaciones:', error);
       });
 
   }, []);
