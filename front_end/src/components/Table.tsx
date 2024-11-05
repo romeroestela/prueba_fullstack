@@ -9,21 +9,25 @@ const Table = () => {
   const fetchOperations = (): Promise<OperationResponseFromApi> => {
     return fetch('http://localhost:3000/api/operations')
       .then(res => {
-        if (!res.ok) {
+
+        if (!res.ok) { // Valida el estado de la API
           throw new Error('Error al obtener operaciones');
         }
         return res.json();
       });
   };
 
+  // Llama a fetchOperations y, cuando los datos están disponibles, los almacena en el estado
   useEffect(() => {
     fetchOperations()
       .then(data => {
-        setOperations(data);
+        console.log(data);
+        setOperations(data); // Almacenamos las operaciones en el estado
       })
-      .catch(error => {
+      .catch(error => { // Captura cualquier error que ocurra en el proceso completo de fetchOperations
         console.error('Error al cargar las operaciones:', error);
       });
+
   }, []);
 
   const handleRefresh = () => {
