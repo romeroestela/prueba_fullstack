@@ -2,39 +2,41 @@ import { useState, useEffect } from 'react';
 import { Operation, OperationResponseFromApi } from '../types';
 
 const Table = () => {
-
   // Estado para almacenar la lista de operaciones
   const [operations, setOperations] = useState<Operation[]>([]);
 
+  // Solicitud GET al backend para obtener operaciones
+  const fetchOperations = (): Promise<OperationResponseFromApi> => {
+    return fetch('http://localhost:3000/api/operations')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Error al obtener operaciones');
+        }
+        return res.json();
+      });
+  };
+
   useEffect(() => {
-    // Solicitud GET al backend para obtener operaciones
-    const fetchOperations = (): Promise<OperationResponseFromApi> => {
-      return fetch('http://localhost:3000/api/operations')
-        .then(res => {
-
-          if (!res.ok) { // Valida el estado de la API
-            throw new Error('Error al obtener operaciones');
-          }
-          return res.json();
-        });
-    };
-
-    // Llama a fetchOperations y, cuando los datos están disponibles, los almacena en el estado
     fetchOperations()
       .then(data => {
-        console.log(data);
-        setOperations(data); // Almacenamos las operaciones en el estado
+        setOperations(data);
       })
-      .catch(error => { // Captura cualquier error que ocurra en el proceso completo de fetchOperations
+      .catch(error => {
         console.error('Error al cargar las operaciones:', error);
       });
-
   }, []);
 
-  return(
+  const handleRefresh = () => {
+    fetchOperations()
+      .then(data => {
+        setOperations(data);
+      });
+  };
+
+  return (
     <>
       {operations.length === 0 ? (
-        <p>Aun no hay operaciones</p>
+        <p>Aún no hay operaciones</p>
       ) : (
         <table>
           <thead>
@@ -59,8 +61,9 @@ const Table = () => {
           </tbody>
         </table>
       )}
+      <button onClick={handleRefresh}>Actualizar Datos</button>
     </>
   );
 };
-export default Table;
 
+export default Table;
