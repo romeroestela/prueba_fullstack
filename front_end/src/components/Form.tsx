@@ -1,13 +1,15 @@
 import { useState } from 'react';
 const Form = () => {
-  // Estado para almacenar los valores ingresados en el formulario
-  const [inputValues, setInputValues] = useState({
+  // Definir el estado inicial de los valores del formulario
+  const initialInputValues = {
     marketer_id: '',
     client_id: '',
     type: '',
     amount: '',
     price: '',
-  });
+  };
+  // Estado para almacenar los valores ingresados en el formulario
+  const [inputValues, setInputValues] = useState(initialInputValues);
 
   // Función que se llama cuando se envía el formulario
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -34,6 +36,7 @@ const Form = () => {
       })
       .then((data) => {
         console.log('Operación añadida exitosamente:', data);
+        setInputValues(initialInputValues)
       })
       .catch((error) => {
         console.error('Error al enviar el formulario:', error);
