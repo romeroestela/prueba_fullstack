@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   } catch (e) {
     if (e instanceof Error) {
       res.status(400).send(e.message)
-    }
+    } 
   }
 })
 

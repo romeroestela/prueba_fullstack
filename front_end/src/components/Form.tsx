@@ -1,6 +1,6 @@
 import { useState } from 'react';
 const Form = () => {
-  //Estado para almacenar los valores ingresados en el formulario
+  // Estado para almacenar los valores ingresados en el formulario
   const [inputValues, setInputValues] = useState({
     marketer_id: '',
     client_id: '',
@@ -8,17 +8,43 @@ const Form = () => {
     amount: '',
     price: '',
   });
-  //Función que se llama cuando se envía el formulario
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
 
+  // Función que se llama cuando se envía el formulario
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    event.preventDefault(); // Evita la recarga de la página
+
+    return fetch('http://localhost:3000/api/operations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        marketer_id: Number(inputValues.marketer_id),
+        client_id: Number(inputValues.client_id),
+        type: inputValues.type,
+        amount: Number(inputValues.amount),
+        price: Number(inputValues.price),
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error al enviar los datos');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Operación añadida exitosamente:', data);
+      })
+      .catch((error) => {
+        console.error('Error al enviar el formulario:', error);
+      });
   };
 
-  //Maneja los cambios en los campos del formulario
+  // Maneja los cambios en los campos del formulario
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValues({
-      ...inputValues, //Copia los valores actuales de todos los inputs
-      [event.target.name]: event.target.value, //Actualiza solo el input que cambió
+      ...inputValues, // Copia los valores actuales de todos los inputs
+      [event.target.name]: event.target.value, // Actualiza solo el input que cambió
     });
   };
 
@@ -28,7 +54,7 @@ const Form = () => {
             ID de tu comercializadora:
         <input
           required
-          type="text"
+          type="number"
           id="marketer_id"
           name="marketer_id"
           placeholder="ID de tu comercializadora"
@@ -41,7 +67,7 @@ const Form = () => {
             ID cliente:
         <input
           required
-          type="text"
+          type="number"
           id="client_id"
           name="client_id"
           placeholder="ID comercializadora cliente"
