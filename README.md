@@ -143,6 +143,8 @@ app.use((_req, res, next) => {
   next()
 })
 
+## Comentarios y Decisiones BASE DE DATOS
+- He utilizado el tipo `SERIAL` para la columna `id` para asegurar que cada operación tenga un identificador único e incremental automáticamente. Este tipo facilita la gestión de los IDs sin tener que asignarlos mmanualmente.
 
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
