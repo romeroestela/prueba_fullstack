@@ -156,3 +156,4 @@ He optado por no poner un delimitador específico en los decimales de `amount` y
 
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
+
