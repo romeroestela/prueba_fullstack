@@ -145,6 +145,9 @@ app.use((_req, res, next) => {
 
 ## Comentarios y Decisiones BASE DE DATOS
 - He utilizado el tipo `SERIAL` para la columna `id` para asegurar que cada operación tenga un identificador único e incremental automáticamente. Este tipo facilita la gestión de los IDs sin tener que asignarlos mmanualmente.
-
+- Uso de ON DELETE SET NULL en `marketer_id` y `client_id`:
+He utilizado `ON DELETE SET NULL` para garantizar que, si se elimina un marketer, las operaciones asociadas no sean eliminadas, sino que sus referencuas sean puestas en `NULL`. Lo he decidido por dos razones:
+1. Privacidad de datos: Mantener las operaciones existentes sin revelar datos de las comercializadoras.
+2. Evitar la pérdida de operaciones: La eliminación de un marketer no debería eliminar las operaciones ya realizadas, ya que estas podrían tener valor para la empresa.
 ## Decisiones de Diseño
 - Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
