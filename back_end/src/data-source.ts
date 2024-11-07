@@ -8,8 +8,8 @@ export const AppDataSource = new DataSource({
   host: "localhost",      // Dirección del host de tu base de datos
   port: 5432,             // Puerto estándar de PostgreSQL
   username: "postgres",   // Tu usuario de PostgreSQL
-  password: "yourpassword",  // Contraseña de tu usuario de PostgreSQL
-  database: "mydatabase",   // El nombre de tu base de datos
+  password: "",  // Contraseña de tu usuario de PostgreSQL
+  database: "pruebaTecnica",   // El nombre de tu base de datos
   entities: [
     Marketer, // Entidades del proyecto
     Operation            
