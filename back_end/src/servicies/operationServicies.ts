@@ -1,36 +1,54 @@
 import { OperationEntry, NonSensitiveInfoEntry, newOperationEntry } from '../types'
-import operationData from '../operations.json'
-import marketerData from '../marketers.json'
+import { AppDataSource } from '../data-source'
+import { Operations } from '../entity/Operations'
+import { Marketer } from '../entity/Marketer'
+import { Type } from '../enums'
 
-const operations: OperationEntry[] = operationData as OperationEntry[]
-const marketers = marketerData as Array<{ id: number, name: string }>
+const operationRepository = AppDataSource.getRepository(Operations)
+const marketerRepository = AppDataSource.getRepository(Marketer)
 
-export const getEntries = (): OperationEntry[] => operations
-
-// Función para obtener el nombre de una comercializadora a partir del ID
-const getMarketerNameById = (id: number): string => {
-  const marketer = marketers.find(m => m.id === id)
-  return (marketer != null) ? marketer.name : 'Desconocido'
-}
-
-export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoEntry[] => {
-  return operations.map(({ type, amount, price, marketer_id, client_id }) => {
-    return {
-      type,
-      amount,
-      price,
-      marketer_name: getMarketerNameById(marketer_id),
-      client_name: getMarketerNameById(client_id)
-    }
+export const getEntriesWithoutSensitiveInfo = async (): Promise<NonSensitiveInfoEntry[]> => {
+  const operations = await operationRepository.find({
+    relations: ['marketer', 'client']
   })
+
+  return operations.map(({ type, amount, price, marketer, client }) => ({
+    type,
+    amount,
+    price,
+    marketer_name: marketer ? marketer.name : 'Desconocido',
+    client_name: client ? client.name : 'Desconocido'
+  }))
 }
 
-export const addOperation = (newOperationEntry: newOperationEntry): OperationEntry => {
-  const newOperation = {
-    id: Math.max(...operations.map(d => d.id)) + 1, // Esta línea crea un nuevo ID encontrando el número más alto y sumándole 1.
-    ...newOperationEntry
+export const addOperation = async (newOperationEntry: newOperationEntry): Promise<OperationEntry> => {
+  const { marketer_id, client_id, type, amount, price } = newOperationEntry
+
+  const marketer = await marketerRepository.findOne({ where: { id: marketer_id } })
+  const client = await marketerRepository.findOne({ where: { id: client_id } })
+
+  if ((marketer == null) || (client == null)) {
+    throw new Error('Comercializadora o Cliente no encontrados')
   }
 
-  operations.push(newOperation)
-  return newOperation
+  const newOperation = operationRepository.create({
+    marketer,
+    client,
+    type,
+    amount,
+    price
+  })
+
+  const savedOperation = await operationRepository.save(newOperation)
+
+  return {
+    id: savedOperation.id,
+    marketer_id: savedOperation.marketer.id,
+    client_id: savedOperation.client.id,
+    type: savedOperation.type as Type, 
+    amount: savedOperation.amount,
+    price: savedOperation.price,
+    marketer_name: marketer.name,
+    client_name: client.name
+  }
 }

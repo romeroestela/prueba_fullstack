@@ -4,8 +4,13 @@ import toNewOperationEntry from '../utils'
 
 const router = express.Router()
 
-router.get('/', (_req, res) => {
-  res.send(operationServicies.getEntriesWithoutSensitiveInfo())
+router.get('/', async (_req, res) => {
+  try {
+    const operations = await operationServicies.getEntriesWithoutSensitiveInfo()
+    res.json(operations)
+  } catch (error) {
+    res.status(500).send('Error al obtener las operaciones')
+  }
 })
 
 router.post('/', (req, res) => {
@@ -18,7 +23,7 @@ router.post('/', (req, res) => {
   } catch (e) {
     if (e instanceof Error) {
       res.status(400).send(e.message)
-    } 
+    }
   }
 })
 
