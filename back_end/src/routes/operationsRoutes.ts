@@ -13,16 +13,16 @@ router.get('/', async (_req, res) => {
   }
 })
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newOperationEntry = toNewOperationEntry(req.body)
 
-    const addOperationEntry = operationServicies.addOperation(newOperationEntry)
+    const addOperationEntry = await operationServicies.addOperation(newOperationEntry)
 
     res.json(addOperationEntry)
   } catch (e) {
     if (e instanceof Error) {
-      res.status(400).send(e.message)
+      res.status(400).json({ error: e.message })
     }
   }
 })

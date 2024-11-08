@@ -30,7 +30,9 @@ const Form = () => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error al enviar los datos');
+          return response.json().then((errorData) => {
+            throw new Error(errorData.error || 'Error al enviar los datos');
+          });
         }
         return response.json();
       })
@@ -39,7 +41,8 @@ const Form = () => {
         setInputValues(initialInputValues);
       })
       .catch((error) => {
-        console.error('Error al enviar el formulario:', error);
+        console.error('Error al enviar el formulario:', error.message);
+        alert(error.message);
       });
   };
 

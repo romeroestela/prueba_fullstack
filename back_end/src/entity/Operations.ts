@@ -8,18 +8,19 @@ export class Operations {
 
   // @ManyToOne(): Establece una relación "muchos a uno". Muchas operaciones están relacionadas con una Marketer(comercializadora)
   @ManyToOne(() => Marketer, (marketer) => marketer.id, { nullable: true, onDelete: 'SET NULL' })
-  @JoinColumn({ name: 'marketer_id' }) 
+  @JoinColumn({ name: 'marketer_id' })
     marketer: Marketer
 
   @ManyToOne(() => Marketer, (marketer) => marketer.id, { nullable: true, onDelete: 'SET NULL' })
-  @JoinColumn({ name: 'client_id' }) 
+  @JoinColumn({ name: 'client_id' })
     client: Marketer
 
   @Column()
-    type: 'buy' | 'sell' 
+    type: 'buy' | 'sell'
 
   @Column('float')
-    amount: number 
+    amount: number
+
   @Column('float')
-    price: number 
+    price: number
 }
