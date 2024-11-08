@@ -25,7 +25,7 @@ h2{
 }
 
 form{
-  margin-top: 64px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -42,15 +42,6 @@ input{
   display: block;
   margin-bottom: 16px;
   width: 25%;
-}
-
-.formRadio label{
-  display: inline;
-}
-
-.formRadio input{
-  display:inline-block;
-  width: 5%;
 }
 
 table {

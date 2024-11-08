@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import '../style/Form.css';
+
 const Form = () => {
   // Definir el estado inicial de los valores del formulario
   const initialInputValues = {
@@ -8,8 +10,11 @@ const Form = () => {
     amount: '',
     price: '',
   };
+
   // Estado para almacenar los valores ingresados en el formulario
   const [inputValues, setInputValues] = useState(initialInputValues);
+  const [responseMessage, setResponseMessage] = useState<string | null>(null); // Estado para el mensaje de feedback
+  const [responseClass, setResponesClass] = useState<'success' | 'error' | null>(null);
 
   // Función que se llama cuando se envía el formulario
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -36,13 +41,14 @@ const Form = () => {
         }
         return response.json();
       })
-      .then((data) => {
-        console.log('Operación añadida exitosamente:', data);
+      .then(() => {
+        setResponseMessage('Operación añadida exitosamente.');
+        setResponesClass('success');
         setInputValues(initialInputValues);
       })
       .catch((error) => {
-        console.error('Error al enviar el formulario:', error.message);
-        alert(error.message);
+        setResponseMessage(error.message);
+        setResponesClass('error');
       });
   };
 
@@ -54,8 +60,25 @@ const Form = () => {
     });
   };
 
+  // Este efecto hace que el mensaje de respuesta desaparezca después de 30 segundos
+  useEffect(() => {
+    if (responseMessage) {
+      const timer = setTimeout(() => {
+        setResponseMessage(null);
+        setResponesClass(null);
+      }, 30000);
+
+      return () => clearTimeout(timer); // Limpiar el timer si el componente se desmonta antes
+    }
+  }, [responseMessage]);
+
   return(
     <form onSubmit={handleSubmit}>
+      {responseMessage && (
+        <div className={`feedbackMessage ${responseClass}`}>
+          {responseMessage}
+        </div>
+      )}
       <label htmlFor="marketer_id">
             ID de tu comercializadora:
         <input
