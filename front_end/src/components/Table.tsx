@@ -21,7 +21,6 @@ const Table = () => {
   useEffect(() => {
     fetchOperations()
       .then(data => {
-        console.log(data);
         setOperations(data); // Almacenamos las operaciones en el estado
       })
       .catch(error => { // Captura cualquier error que ocurra en el proceso completo de fetchOperations

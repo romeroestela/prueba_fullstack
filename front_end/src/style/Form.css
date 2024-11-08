@@ -24,12 +24,10 @@ form{
 }
   
 .feedbackMessage.success {
-    background-color: #d4edda;
-    color: #155724;
+    color: #d4edda;
 }
   
 .feedbackMessage.error {
-    background-color: #f8d7da;
-    color: #721c24;
+    color: #f8d7da;
 }
   

@@ -12,7 +12,8 @@ export const getEntriesWithoutSensitiveInfo = async (): Promise<NonSensitiveInfo
     relations: ['marketer', 'client']
   })
 
-  return operations.map(({ type, amount, price, marketer, client }) => ({
+  return operations.map(({ id, type, amount, price, marketer, client }) => ({
+    id,
     type,
     amount,
     price,
