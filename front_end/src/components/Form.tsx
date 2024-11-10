@@ -87,7 +87,7 @@ const Form = () => {
           type="number"
           id="marketer_id"
           name="marketer_id"
-          placeholder="ID de tu comercializadora"
+          placeholder="5"
           value={inputValues.marketer_id}
           onChange={handleChange}
         />
@@ -99,36 +99,38 @@ const Form = () => {
           type="number"
           id="client_id"
           name="client_id"
-          placeholder="ID comercializadora cliente"
+          placeholder="25"
           value={inputValues.client_id}
           onChange={handleChange}
         />
       </label>
 
-      <h3>Tipo de Operación:</h3>
-      <label htmlFor="buy">
+      <div className="radio-type">
+        <h3>Tipo de Operación:</h3>
+        <label htmlFor="buy">
             Compra
-        <input
-          type="radio"
-          id='buy'
-          name="type"
-          value="buy"
-          checked={inputValues.type === 'buy'}
-          onChange={handleChange}
-        />
-      </label>
+          <input
+            type="radio"
+            id='buy'
+            name="type"
+            value="buy"
+            checked={inputValues.type === 'buy'}
+            onChange={handleChange}
+          />
+        </label>
 
-      <label htmlFor="sell">
+        <label htmlFor="sell">
             Venta
-        <input
-          type="radio"
-          id='sell'
-          name="type"
-          value="sell"
-          checked={inputValues.type === 'sell'}
-          onChange={handleChange}
-        />
-      </label>
+          <input
+            type="radio"
+            id='sell'
+            name="type"
+            value="sell"
+            checked={inputValues.type === 'sell'}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
 
       <h3>Cantidad de gas:</h3>
       <label htmlFor="amount">
@@ -137,7 +139,7 @@ const Form = () => {
           type="number"
           id='amount'
           name="amount"
-          placeholder="50000"
+          placeholder="5000"
           value={inputValues.amount}
           onChange={handleChange}
         />
@@ -150,7 +152,7 @@ const Form = () => {
           type="number"
           id='price'
           name="price"
-          placeholder="50000"
+          placeholder="341"
           value={inputValues.price}
           onChange={handleChange}
         />

@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 2px solid #4B8F2C;
+}
+  
+th, td {
+  border: 1px solid #4B8F2C;
+  padding: 10px;
+  text-align: center;
+}
+  
+th {
+  background-color: #C2EABA;
+  font-weight: bold;
+  text-align: center;
+}

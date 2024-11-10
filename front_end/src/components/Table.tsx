@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Operation, OperationResponseFromApi } from '../types';
+import '../style/Table.css';
 
 const Table = () => {
   // Estado para almacenar la lista de operaciones
@@ -44,9 +45,9 @@ const Table = () => {
         <table>
           <thead>
             <tr>
-              <th>Compra o Venta</th>
               <th>Comercializadora</th>
               <th>Cliente</th>
+              <th>Compra o Venta</th>
               <th>Cantidad de gas</th>
               <th>Precio</th>
             </tr>
@@ -54,9 +55,9 @@ const Table = () => {
           <tbody>
             {operations.map((operation) => (
               <tr key={operation.id}>
-                <td>{operation.type}</td>
                 <td>{operation.marketer_name}</td>
                 <td>{operation.client_name}</td>
+                <td>{operation.type}</td>
                 <td>{operation.amount}</td>
                 <td>{operation.price}</td>
               </tr>

@@ -26,10 +26,10 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 - [x]Conectar con PostgreSQL usando un ORM (TypeORM).
   
 ### Base de Datos (PostgreSQL)
-- [ ] Diseñar el esquema de la base de datos:
-   - [ ] Crear tabla `marketers` (comercializadoras).
-   - [ ] Crear tabla `operations`.
-- [ ] Probar la conexión y las consultas básicas.
+- [x] Diseñar el esquema de la base de datos:
+   - [x] Crear tabla `marketers` (comercializadoras).
+   - [x] Crear tabla `operations`.
+- [x] Probar la conexión y las consultas básicas.
 
 ### Documentación y Entrega
 - [ ] Completar la documentación en el README.md (instrucciones para ejecutar el proyecto, decisiones tomadas).

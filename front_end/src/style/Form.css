@@ -1,47 +1,72 @@
 form{
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #6AC346;
+  border-radius: 8px;
+  margin-top: 0.8em;
+}
+
+label {
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border-radius: 4px;
+  border: 1px solid #4B8F2C;
+  width: 100%;
+  max-width: 250px;
+  padding: 5px;
+  background-color: #E3F5E0;
+  color: #203E14;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #4B8F2C;
+  border-radius: 50%;
+  background-color: #C2EABA;
+  position: relative;
+  margin-right: 5px;
+}
+
+input[type="radio"]:checked {
+    background-color: #4B8F2C;
+    border: 2px solid #203E14;
+}
+
+.radio-type {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-label{
-    font-size: .9em;
-    margin-left: 10px;
-}
-  
-input{
-    border-radius: 4px;
-    cursor: default;
-    border: 1px solid #555;
-    display: block;
-    width: 25%;
-    margin: 10px;
-}
-
-#buy, #sell {
-    display:inline-block;
-    width: 50px;
-}
-
-h3{
- margin: 10px;
+    align-items: center;
+    gap: 20px;
 }
 
 .feedbackMessage {
-    margin-top: 10px;
     padding: 10px;
     border-radius: 5px;
     font-weight: bold;
     text-align: center;
-    width: 50%;
+    letter-spacing: 0.5px;
+    width: 90%;
 }
   
 .feedbackMessage.success {
-    color: #d4edda;
+    color: #e8efe6;
+    background-color: #4B8F2C;
 }
   
 .feedbackMessage.error {
-    color: #f8d7da;
+    color: #D4700C;
+    background-color: #F9CA9C;
 }
   
