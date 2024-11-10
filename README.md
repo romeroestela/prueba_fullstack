@@ -15,7 +15,7 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 - [x] Crear interfaz de usuario:
    - [x] Formulario para añadir operaciones.
    - [x] Lista para mostrar las operaciones existentes.
-- [ ] Conectar con el back-end usando fetch o Axios.
+- [x] Conectar con el back-end usando fetch o Axios.
 - [ ] (Opcional) Implementar React Query para gestión de estado y cache de datos.
 
 ### Back-end (Node.js + TypeScript)
@@ -23,9 +23,8 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 - [x] Crear rutas API:
    - [x] `GET /operations`: Devuelve todas las operaciones.
    - [x] `POST /operations`: Permite agregar una nueva operación.
-- [ ] Conectar con PostgreSQL usando un ORM (TypeORM).
-   - [ ] Crear las funciones para consultar y modificar la base de datos.
-
+- [x]Conectar con PostgreSQL usando un ORM (TypeORM).
+  
 ### Base de Datos (PostgreSQL)
 - [ ] Diseñar el esquema de la base de datos:
    - [ ] Crear tabla `marketers` (comercializadoras).
@@ -36,9 +35,6 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 - [ ] Completar la documentación en el README.md (instrucciones para ejecutar el proyecto, decisiones tomadas).
 - [ ] Realizar pruebas finales de la aplicación.
 - [ ] Subir los cambios finales al repositorio y preparar para entrega.
-
-### Notas 
-Asegúrate de priorizar la funcionalidad básica antes de implementar características opcionales.
 
 ## Instalación y Despligue
 He utilizado Vite para la intalación de React + Typescript. Las opciones elegidas han sido:

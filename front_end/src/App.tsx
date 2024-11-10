@@ -6,12 +6,12 @@ function App() {
   return (
     <main>
       <aside>
-        <h2>Formulario para añadir operaciones</h2>
+        <h1>Formulario para añadir operaciones</h1>
         <Form />
       </aside>
 
       <section>
-        <h2>Lista de operaciones</h2>
+        <h1>Lista de operaciones</h1>
         <Table />
       </section>
     </main>

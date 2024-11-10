@@ -7,8 +7,8 @@
 
 main{
   display: grid;
-  grid-template-rows: 450px 1fr;
-  gap: 10px
+  grid-template-rows: 600px 1fr;
+  gap: 50px
 }
 
 h1{
@@ -22,26 +22,6 @@ h2{
   font-size: 1.1em;
   line-height: 1.1;
   margin: 0;
-}
-
-form{
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-label{
-  font-size: .8em;
-}
-
-input{
-  border-radius: 4px;
-  cursor: default;
-  border: 1px solid #555;
-  display: block;
-  margin-bottom: 16px;
-  width: 25%;
 }
 
 table {

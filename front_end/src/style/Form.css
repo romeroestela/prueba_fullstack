@@ -5,13 +5,27 @@ form{
     gap: 4px;
 }
 
-.formRadio label{
-    display: inline;
+label{
+    font-size: .9em;
+    margin-left: 10px;
 }
   
-.formRadio input{
+input{
+    border-radius: 4px;
+    cursor: default;
+    border: 1px solid #555;
+    display: block;
+    width: 25%;
+    margin: 10px;
+}
+
+#buy, #sell {
     display:inline-block;
-    width: 5%;
+    width: 50px;
+}
+
+h3{
+ margin: 10px;
 }
 
 .feedbackMessage {

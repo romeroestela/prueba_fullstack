@@ -74,13 +74,14 @@ const Form = () => {
 
   return(
     <form onSubmit={handleSubmit}>
+
       {responseMessage && (
         <div className={`feedbackMessage ${responseClass}`}>
           {responseMessage}
         </div>
       )}
+      <h3>ID de tu comercializadora:</h3>
       <label htmlFor="marketer_id">
-            ID de tu comercializadora:
         <input
           required
           type="number"
@@ -91,9 +92,8 @@ const Form = () => {
           onChange={handleChange}
         />
       </label>
-
+      <h3>ID cliente:</h3>
       <label htmlFor="client_id">
-            ID cliente:
         <input
           required
           type="number"
@@ -105,10 +105,12 @@ const Form = () => {
         />
       </label>
 
-      <label htmlFor="buy" className="formRadio">
+      <h3>Tipo de Operación:</h3>
+      <label htmlFor="buy">
             Compra
         <input
           type="radio"
+          id='buy'
           name="type"
           value="buy"
           checked={inputValues.type === 'buy'}
@@ -116,10 +118,11 @@ const Form = () => {
         />
       </label>
 
-      <label htmlFor="sell" className="formRadio">
+      <label htmlFor="sell">
             Venta
         <input
           type="radio"
+          id='sell'
           name="type"
           value="sell"
           checked={inputValues.type === 'sell'}
@@ -127,11 +130,12 @@ const Form = () => {
         />
       </label>
 
+      <h3>Cantidad de gas:</h3>
       <label htmlFor="amount">
-            Cantidad de gas:
         <input
           required
           type="number"
+          id='amount'
           name="amount"
           placeholder="50000"
           value={inputValues.amount}
@@ -139,11 +143,12 @@ const Form = () => {
         />
       </label>
 
+      <h3>Precio:</h3>
       <label htmlFor="price">
-            Precio:
         <input
           required
           type="number"
+          id='price'
           name="price"
           placeholder="50000"
           value={inputValues.price}
