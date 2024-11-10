@@ -8,6 +8,24 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 - Back-end: Node + TypeScript
 - Base de Datos: PostgreSQL
 
+## Ejecutar el Proyecto
+
+### Configuración del Back-end
+1. Intalar dependencias:
+   `cd back_end`
+   `npm install`
+2. Abre el archivo `src/data-source.ts` y completa los valores indicados en los comentarios (como 'database', 'username', 'password', etc)
+3. Crea una base de datos (si aún no lo has hecho)
+4. En tu base de datos, ejecuta el archivo marketers.sql para insertar los datos iniciales de las comercializadoras.
+5. Inicia el servidor del back-end: `npm run dev`
+
+### Configuración del Front-end
+1. Abre una nueva terminal y ve a la carpeta 'front_end' `cd front_end`
+2. Instala las dependencias `npm install`
+3. npm run dev
+
+
+
 ## Tareas  
 
 ### Front-end (React + TypeScript)

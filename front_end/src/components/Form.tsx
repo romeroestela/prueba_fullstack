@@ -1,16 +1,8 @@
 import { useState, useEffect } from 'react';
 import '../style/Form.css';
+import { initialInputValues } from '../config/formInitialValues';
 
 const Form = () => {
-  // Definir el estado inicial de los valores del formulario
-  const initialInputValues = {
-    marketer_id: '',
-    client_id: '',
-    type: '',
-    amount: '',
-    price: '',
-  };
-
   // Estado para almacenar los valores ingresados en el formulario
   const [inputValues, setInputValues] = useState(initialInputValues);
   const [responseMessage, setResponseMessage] = useState<string | null>(null); // Estado para el mensaje de feedback
@@ -60,7 +52,7 @@ const Form = () => {
     });
   };
 
-  // Este efecto hace que el mensaje de respuesta desaparezca después de 30 segundos
+  // Este Effect hace que el mensaje de respuesta desaparezca después de 30 segundos
   useEffect(() => {
     if (responseMessage) {
       const timer = setTimeout(() => {
