@@ -36,6 +36,10 @@ export const addOperation = async (newOperationEntry: newOperationEntry): Promis
   const { marketer_id, client_id, type, amount, price } = newOperationEntry
 
   try {
+
+    if  (marketer_id === client_id){
+      throw new ValidationError('El ID de tu comercializadora no puede ser el mismo que el del cliente')
+    }
     const marketer = await marketerRepository.findOne({ where: { id: marketer_id } })
     if (marketer == null) {
       throw new ValidationError(`Comercializadora con ID ${marketer_id} no encontrada`)
