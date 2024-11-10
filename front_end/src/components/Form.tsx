@@ -84,7 +84,7 @@ const Form = () => {
           onChange={handleChange}
         />
       </label>
-      <h3>ID cliente:</h3>
+      <h3>ID del cliente:</h3>
       <label htmlFor="client_id">
         <input
           required

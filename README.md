@@ -24,7 +24,42 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 2. Instala las dependencias `npm install`
 3. npm run dev
 
+## ¿Cómo funciona la aplicación?
 
+1. Formulario de Operación
+- ID de tu comercializadora: 
+Este campo corresponde al ID de la comercializadora que está realizando la operación. Los posibles valores son:
+   - Comercializadora 1 (ID = 1)
+   - Comercializadora 2 (ID = 2)
+   - Comercializadora 3 (ID = 3)
+   - Comercializadora 4 (ID = 4)
+   - Comercializadora 5 (ID = 5)
+- ID del Cliente:
+Este campo corresponde al ID del cliente con quien se está realizando la operación. Los valores también corresponden a los IDs de las comercializadoras.
+- Tipo de Operación: 
+Selecciona si es una compra o una venta.
+- Cantidad de Gas: 
+Ingresa la cantidad de gas que deseas comprar o vender.
+- Precio: 
+Escribe el precio por la cantidad de gas.
+Al llenar todos los campos, haz clic en "Añadir nueva operación" para guardar la operación.
+
+Validaciones:
+- No podrás hacer una operación si el ID de la comercializadora no existe.
+- Tampoco podrás hacer la operación si el ID de la comercializadora es el mismo que el del cliente.
+
+2. Tabla de Operaciones
+Debajo del formulario, verás una tabla con todas las operaciones registradas. Esta tabla muestra:
+- El nombre de la comercializadora
+- El nombre del cliente
+- El tipo de operación (compra o venta)
+- La cantidad de gas
+- El precio
+En cualquier momento, puedes hacer clic en "Actualizar Datos" para ver la tabla más actualizada con las nuevas operaciones.
+
+3. Mensajes de Error y Confirmación
+- Mensaje de Éxito: Si la operación se envía correctamente, aparecerá un mensaje que dice "Operación añadida exitosamente.". Este mensaje durará 30 segundos y el formulario se reseteará automáticamente, dejándote crear más operaciones. 
+- Mensaje de Error: Si hay algún problema (por ejemplo, si los IDs no son válidos), aparecerá un mensaje de error con la razón del fallo, que también desaparecerá después de 30 segundos.
 
 ## Tareas  
 
@@ -51,7 +86,7 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 
 ### Documentación y Entrega
 - [ ] Completar la documentación en el README.md (instrucciones para ejecutar el proyecto, decisiones tomadas).
-- [ ] Realizar pruebas finales de la aplicación.
+- [x] Realizar pruebas finales de la aplicación.
 - [ ] Subir los cambios finales al repositorio y preparar para entrega.
 
 ## Instalación y Despligue
