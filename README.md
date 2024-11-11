@@ -10,7 +10,7 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 
 ## Ejecutar el Proyecto
 ### Configuración del Back-end
-1. Intalar dependencias:
+1. Instalar dependencias:
    `cd back_end`
    `npm install`
 2. Abre el archivo `src/data-source.ts` y completa los valores indicados en los comentarios (como 'database', 'username', 'password', etc)
@@ -130,6 +130,13 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 - Carpeta `components`: He creado la carpeta `components` para agrupar componentes reutilizables. Esto me ayuda a mantener el código más ordenado y fácil de manejar. Dentro de esta carpeta, tengo dos componentes: uno llamado `Form` para capturar nuesvas operaciones y otro llamado `Table` para mostrar esas operaciones.
 - Carpeta `config`: La carpeta `config` contiene configuraciones y valores utilizados en el proyecto. En `formInitialValues.ts` se define el estado inicial del formulario.
 - Carpeta `style`: Esta carpeta la he utilizado para mantener la organización en el proyecto, almacenando en ella las hojas de estilo. 
+- **Separación de Lógica en Hooks Personalizados**
+1. Formulario (Form.tsx)
+He movido la lógica de manejo del formulario a un hook personalizado llamado `useForm`. Este hook gestiona el estado de los calores del formulario, las respuestas del servidos, y las funciones de cambio y envío. 
+El componente `Form` se centra en la presentación de la interfaz. 
+2. Tabla de Operaciones(Table.tsx)
+La lógica para manejar las operaciones la he movido a un hook personalizado llamado `useOperations`. Este hook se encarga de realizar la solicitud al backend, actualizar el estado de las operaciones y manejar la acción de actualizar datos. 
+Por otra parte el componente `Table` se encarga de mostrar los datos.
 
 ## Estructura del Proyecto Back-End
 -Carpeta `routes`: He creado la carpeta `routes` para organizar las rutas de la API y manejar las solicitudes que llegan al servidor de manera estructurada. El archivo `operationsRouter.ts` define las rutas relacionadas con las operaciones y cómo deben responder a solicitudes específicas de los clientes, como obtener o crear nuevas operaciones.
