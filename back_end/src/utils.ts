@@ -25,6 +25,7 @@ const parseClientId = (clientIdRequest: any): number => {
   return clientIdRequest
 }
 
+
 const parseAmount = (amountRequest: any): number => {
   if (!isNumber(amountRequest)) {
     throw new Error('Amount no válido o no especificado')
@@ -41,18 +42,22 @@ const parsePrice = (priceRequest: any): number => {
   return priceRequest
 }
 
+// Valida si el valor es un string
 const isString = (string: string): boolean => {
   return typeof string === 'string'
 }
 
+// Valida si el valor es un número y no es NaN
 const isNumber = (number: number): boolean => {
   return typeof number === 'number' && !isNaN(number)
 }
 
+// Verifica si el valor está dentro de los tipos válidos de Type
 const isType = (param: any): boolean => {
   return Object.values(Type).includes(param)
 }
 
+// Convierte el objeto recibido a una nueva entrada válida de operación
 const toNewOperationEntry = (object: any): newOperationEntry => {
   const newEntry: newOperationEntry = {
     type: parseType(object.type),
