@@ -11,7 +11,7 @@ const Table = () => {
     return fetch('http://localhost:3000/api/operations')
       .then(res => {
 
-        if (!res.ok) { // Valida el estado de la API
+        if (!res.ok) { // Si la respuesta de la API no es exitosa, lanza un error
           throw new Error('Error al obtener operaciones');
         }
         return res.json();
@@ -24,16 +24,17 @@ const Table = () => {
       .then(data => {
         setOperations(data); // Almacenamos las operaciones en el estado
       })
-      .catch(error => { // Captura cualquier error que ocurra en el proceso completo de fetchOperations
+      .catch(error => { // Si ocurre un error en la solicitud, se muestra en la consola
         console.error('Error al cargar las operaciones:', error);
-      });
+      }); // El array vacío [] asegura que esto solo se ejecute una vez, al montar el componente
 
   }, []);
 
+  // Función para actualizar las operaciones, llamada cuando el usuario hace clic en el botón "Actualizar Datos"
   const handleRefresh = () => {
     fetchOperations()
       .then(data => {
-        setOperations(data);
+        setOperations(data); // Actualiza el estado con las nuevas operaciones obtenidas
       });
   };
 

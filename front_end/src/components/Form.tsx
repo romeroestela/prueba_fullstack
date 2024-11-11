@@ -36,7 +36,7 @@ const Form = () => {
       .then(() => {
         setResponseMessage('Operación añadida exitosamente.');
         setResponesClass('success');
-        setInputValues(initialInputValues);
+        setInputValues(initialInputValues); // Reinicia el formulario
       })
       .catch((error) => {
         setResponseMessage(error.message);
