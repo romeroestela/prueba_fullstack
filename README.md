@@ -9,42 +9,37 @@ Aplicación full-stack para listar y agregar operaciones de comercializadoras. C
 - Base de Datos: PostgreSQL
 
 ## Ejecutar el Proyecto
-
 ### Configuración del Back-end
 1. Intalar dependencias:
    `cd back_end`
    `npm install`
 2. Abre el archivo `src/data-source.ts` y completa los valores indicados en los comentarios (como 'database', 'username', 'password', etc)
 3. Crea una base de datos (si aún no lo has hecho)
-4. En tu base de datos, ejecuta el archivo marketers.sql para insertar los datos iniciales de las comercializadoras.
+4. En tu base de datos, ejecuta el archivo marketers.sql para insertar los datos iniciales de las comercializadoras
 5. Inicia el servidor del back-end: `npm run dev`
 
 ### Configuración del Front-end
 1. Abre una nueva terminal y ve a la carpeta 'front_end' `cd front_end`
 2. Instala las dependencias `npm install`
-3. npm run dev
+3. Inicia el servidor del front-end: `npm run dev`
 
 ## ¿Cómo funciona la aplicación?
 
 1. Formulario de Operación
-- ID de tu comercializadora: 
-Este campo corresponde al ID de la comercializadora que está realizando la operación. Los posibles valores son:
+- **ID de tu comercializadora:** Este campo corresponde al ID de la comercializadora que está realizando la operación. Los posibles valores son:
    - Comercializadora 1 (ID = 1)
    - Comercializadora 2 (ID = 2)
    - Comercializadora 3 (ID = 3)
    - Comercializadora 4 (ID = 4)
    - Comercializadora 5 (ID = 5)
-- ID del Cliente:
-Este campo corresponde al ID del cliente con quien se está realizando la operación. Los valores también corresponden a los IDs de las comercializadoras.
-- Tipo de Operación: 
-Selecciona si es una compra o una venta.
-- Cantidad de Gas: 
-Ingresa la cantidad de gas que deseas comprar o vender.
-- Precio: 
-Escribe el precio por la cantidad de gas.
-Al llenar todos los campos, haz clic en "Añadir nueva operación" para guardar la operación.
+- **ID del Cliente:** Este campo corresponde al ID del cliente con quien se está realizando la operación. Los valores también corresponden a los IDs de las comercializadoras.
+- **Tipo de Operación:** Selecciona si es una compra o una venta.
+- **Cantidad de Gas:** Ingresa la cantidad de gas que deseas comprar o vender.
+- **Precio:**  Escribe el precio por la cantidad de gas.
 
-Validaciones:
+Al llenar todos los campos, haz clic en **Añadir nueva operación** para guardar la operación.
+
+**Validaciones:**
 - No podrás hacer una operación si el ID de la comercializadora no existe.
 - Tampoco podrás hacer la operación si el ID de la comercializadora es el mismo que el del cliente.
 
@@ -55,7 +50,7 @@ Debajo del formulario, verás una tabla con todas las operaciones registradas. E
 - El tipo de operación (compra o venta)
 - La cantidad de gas
 - El precio
-En cualquier momento, puedes hacer clic en "Actualizar Datos" para ver la tabla más actualizada con las nuevas operaciones.
+En cualquier momento, puedes hacer clic en **Actualizar Datos** para ver la tabla más actualizada con las nuevas operaciones.
 
 3. Mensajes de Error y Confirmación
 - Mensaje de Éxito: Si la operación se envía correctamente, aparecerá un mensaje que dice "Operación añadida exitosamente.". Este mensaje durará 30 segundos y el formulario se reseteará automáticamente, dejándote crear más operaciones. 
@@ -85,7 +80,7 @@ En cualquier momento, puedes hacer clic en "Actualizar Datos" para ver la tabla 
 - [x] Probar la conexión y las consultas básicas.
 
 ### Documentación y Entrega
-- [ ] Completar la documentación en el README.md (instrucciones para ejecutar el proyecto, decisiones tomadas).
+- [x] Completar la documentación en el README.md (instrucciones para ejecutar el proyecto, decisiones tomadas).
 - [x] Realizar pruebas finales de la aplicación.
 - [ ] Subir los cambios finales al repositorio y preparar para entrega.
 
@@ -107,7 +102,7 @@ Este script permite compilar los archivos TypeScript a JavaScript
 ### Tipos para Express
 Al utilizar Express en TypeScript, Visual Studio Code o el complicador TypeScript mostraban un error, idicando que no se encontraba la declaración de tipos para el módulo `express`. Esto sucede porque el paquete de Express no incluye sus propios tipos.
 
-Para resolver esto, he utilizado un paquete de tipos creado por la comunidad: `@types/express`. Visual Studio Code sugiere instalarlo, y lo he intalado con el siguiente comando:
+Para resolver esto, he utilizado un paquete de tipos creado por la comunidad: `@types/express`. Visual Studio Code sugiere instalarlo, y lo he instalado con el siguiente comando:
 
    npm install @types/express -D
 
@@ -133,6 +128,8 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 
 ## Estructura del Proyecto Front-End
 - Carpeta `components`: He creado la carpeta `components` para agrupar componentes reutilizables. Esto me ayuda a mantener el código más ordenado y fácil de manejar. Dentro de esta carpeta, tengo dos componentes: uno llamado `Form` para capturar nuesvas operaciones y otro llamado `Table` para mostrar esas operaciones.
+- Carpeta `config`: La carpeta `config` contiene configuraciones y valores utilizados en el proyecto. En `formInitialValues.ts` se define el estado inicial del formulario.
+- Carpeta `style`: Esta carpeta la he utilizado para mantener la organización en el proyecto, almacenando en ella las hojas de estilo. 
 
 ## Estructura del Proyecto Back-End
 -Carpeta `routes`: He creado la carpeta `routes` para organizar las rutas de la API y manejar las solicitudes que llegan al servidor de manera estructurada. El archivo `operationsRouter.ts` define las rutas relacionadas con las operaciones y cómo deben responder a solicitudes específicas de los clientes, como obtener o crear nuevas operaciones.
@@ -185,11 +182,13 @@ Este último cambio me generó un problema en producción. Inicialmente, había 
 Para solucionar este problema, he movido el `enum` a un fichero independiente (`enums.ts`) y he exportado `Type` desde allí. 
 
 - Solución al problema de CORS
-Al intentar conectar el frontend con el backend, me ha surgido un error de CORS(Cross-Origin Resource Sharing). Este error se debe a que, por motivos de seguridad, losn avegadores limitan las solicitudes hachas desde un dominio diferente al que sirve la aplicación. Para solucionarlo, he añadido una configuración en el backend que permite el acceso desde cualquier origen. 
+Al intentar conectar el frontend con el backend, me ha surgido un error de CORS(Cross-Origin Resource Sharing). Este error se debe a que, por motivos de seguridad, los navegadores limitan las solicitudes hachas desde un dominio diferente al que sirve la aplicación. Para solucionarlo, he añadido una configuración en el backend que permite el acceso desde cualquier origen. 
 
 app.use((_req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  next()
+   res.header('Access-Control-Allow-Origin', '*')
+   res.header('Access-Control-Allow-Headers', 'Content-Type')
+   res.header('Access-Control-Allow-Methods', 'GET, POST')
+   next()
 })
 
 ## Comentarios y Decisiones BASE DE DATOS
