@@ -132,7 +132,7 @@ Al correr `npm run dev`, la aplicación se ejecutará y recargará automáticame
 - Carpeta `style`: Esta carpeta la he utilizado para mantener la organización en el proyecto, almacenando en ella las hojas de estilo. 
 - **Separación de Lógica en Hooks Personalizados**
 1. Formulario (Form.tsx)
-He movido la lógica de manejo del formulario a un hook personalizado llamado `useForm`. Este hook gestiona el estado de los calores del formulario, las respuestas del servidos, y las funciones de cambio y envío. 
+He movido la lógica de manejo del formulario a un hook personalizado llamado `useForm`. Este hook gestiona el estado de los valores del formulario, las respuestas del servidor, y las funciones de cambio y envío. 
 El componente `Form` se centra en la presentación de la interfaz. 
 2. Tabla de Operaciones(Table.tsx)
 La lógica para manejar las operaciones la he movido a un hook personalizado llamado `useOperations`. Este hook se encarga de realizar la solicitud al backend, actualizar el estado de las operaciones y manejar la acción de actualizar datos. 
