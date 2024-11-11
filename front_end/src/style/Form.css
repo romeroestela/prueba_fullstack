@@ -31,9 +31,9 @@ input[type="number"] {
 
 input[type="text"]::placeholder,
 input[type="number"]::placeholder {
-  color: #8e9681; /* Un color más claro para evitar confusión */
-  font-style: italic; /* Puedes usar itálica para diferenciarlo */
-  opacity: 0.7; /* Hace que el placeholder sea un poco más tenue */
+  color: #8e9681;
+  font-style: italic; 
+  opacity: 0.7; 
 }
 
 input[type="radio"] {
