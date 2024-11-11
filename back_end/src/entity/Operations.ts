@@ -15,7 +15,7 @@ export class Operations {
   @JoinColumn({ name: 'client_id' })
     client: Marketer
 
-  @Column()
+  @Column() // @Column es un decorador utilizado para definir una columna en una entidad.
     type: 'buy' | 'sell'
 
   @Column('float')

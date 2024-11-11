@@ -8,9 +8,9 @@ export class Marketer {
   @Column()
     name: string
 
-  @CreateDateColumn({ type: 'timestamp' })
+  @CreateDateColumn({ type: 'timestamp' }) // @CreateDAtaColumn se utiliza para crear una columna que establece automáticamente la fecha y hora de creación de una entidad.
     created_at: Date
 
-  @UpdateDateColumn({ type: 'timestamp' })
+  @UpdateDateColumn({ type: 'timestamp' }) // @UpdateDateColumn los mismo que @CreateDAtaColumn pero al actualizar la columna. 
     updated_at: Date
 }
