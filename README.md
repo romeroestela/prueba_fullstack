@@ -57,7 +57,6 @@ En cualquier momento, puedes hacer clic en **Actualizar Datos** para ver la tabl
 - Mensaje de Error: Si hay algún problema (por ejemplo, si los IDs no son válidos), aparecerá un mensaje de error con la razón del fallo, que también desaparecerá después de 30 segundos.
 
 ## Tareas  
-
 ### Front-end (React + TypeScript)
 - [x] Configurar proyecto de React con TypeScript.
 - [x] Crear interfaz de usuario:
@@ -82,7 +81,7 @@ En cualquier momento, puedes hacer clic en **Actualizar Datos** para ver la tabl
 ### Documentación y Entrega
 - [x] Completar la documentación en el README.md (instrucciones para ejecutar el proyecto, decisiones tomadas).
 - [x] Realizar pruebas finales de la aplicación.
-- [ ] Subir los cambios finales al repositorio y preparar para entrega.
+- [x] Subir los cambios finales al repositorio y preparar para entrega.
 
 ## Instalación y Despligue
 He utilizado Vite para la intalación de React + Typescript. Las opciones elegidas han sido:
@@ -208,5 +207,6 @@ He utilizado `onDelete: 'SET NULL'` para garantizar que, si se elimina un market
 He optado por no poner un delimitador específico en los decimales de `amount` y `price`. Podría agregar un líte de decimales más adelante si es necesario. 
 
 ## Decisiones de Diseño
-- Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visulizar mejor cada campo. 
+- Lista de operaciones existentes: Decidí mostrar las operaciones en una tabla en lugar de una lista para mejorar la claridad y poder visualizar mejor cada campo. 
+
 
