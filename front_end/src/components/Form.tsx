@@ -19,7 +19,7 @@ const Form = () => {
           type="number"
           id="marketer_id"
           name="marketer_id"
-          placeholder="5"
+          placeholder="Ej: 5"
           value={inputValues.marketer_id}
           onChange={handleChange}
         />
@@ -32,7 +32,7 @@ const Form = () => {
           type="number"
           id="client_id"
           name="client_id"
-          placeholder="25"
+          placeholder="Ej: 25"
           value={inputValues.client_id}
           onChange={handleChange}
         />
@@ -72,7 +72,7 @@ const Form = () => {
           type="number"
           id="amount"
           name="amount"
-          placeholder="5000"
+          placeholder="Ej: 5000"
           value={inputValues.amount}
           onChange={handleChange}
         />
@@ -85,7 +85,7 @@ const Form = () => {
           type="number"
           id="price"
           name="price"
-          placeholder="341"
+          placeholder="Ej: 341"
           value={inputValues.price}
           onChange={handleChange}
         />

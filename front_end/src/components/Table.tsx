@@ -1,9 +1,8 @@
-// components/Table.tsx
 import { useOperations } from '../hooks/useOperations';
 import '../style/Table.css';
 
 const Table = () => {
-  const { operations, handleRefresh } = useOperations(); // Usamos el hook aquí
+  const { operations, handleRefresh } = useOperations(); // Usamos el hook useOperations
 
   return (
     <>
