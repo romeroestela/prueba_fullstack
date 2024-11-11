@@ -3,6 +3,7 @@ import { AppDataSource } from '../data-source'
 import { Operations } from '../entity/Operations'
 import { Marketer } from '../entity/Marketer'
 import { Type } from '../enums'
+import ValidationError from '../errors/ValidationError'
 
 const operationRepository = AppDataSource.getRepository(Operations)
 const marketerRepository = AppDataSource.getRepository(Marketer)
@@ -21,16 +22,6 @@ export const getEntriesWithoutSensitiveInfo = async (): Promise<NonSensitiveInfo
     marketer_name: marketer ? marketer.name : 'Desconocido',
     client_name: client ? client.name : 'Desconocido'
   }))
-}
-
-// Clase de error personalizada para manejar errores de validación
-class ValidationError extends Error {
-  public statusCode: number
-  constructor (message: string) {
-    super(message)
-    this.name = 'ValidationError'
-    this.statusCode = 400
-  }
 }
 
 // Agrega una nueva operación, validando los IDs y que los datos existan en la base de datos
